@@ -16,3 +16,5 @@
 /src/BookPurchase/Payment.Api/obj
 /src/BookPurchase/Shipping.Api/bin/Debug/net9.0
 /src/BookPurchase/Shipping.Api/obj
+/src/BookPurchase/AppHost/bin/Debug/net9.0
+/src/BookPurchase/AppHost/obj
