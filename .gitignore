@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/BookPurchase/.vs/BookPurchase
+/src/BookPurchase/BookPurchase.Web/bin/Debug/net9.0
+/src/BookPurchase/BookPurchase.Web/obj
+/src/BookPurchase/Inventory.Api/bin/Debug/net9.0
+/src/BookPurchase/Inventory.Api/obj
+/src/BookPurchase/Inventory.Api/Inventory.Api.csproj.user
+/src/BookPurchase/Order.Api/bin/Debug/net9.0
+/src/BookPurchase/Order.Api/obj
+/src/BookPurchase/Payment.Api/bin/Debug/net9.0
+/src/BookPurchase/Payment.Api/obj/Debug/net9.0
+/src/BookPurchase/Payment.Api/obj
+/src/BookPurchase/Shipping.Api/bin/Debug/net9.0
+/src/BookPurchase/Shipping.Api/obj
