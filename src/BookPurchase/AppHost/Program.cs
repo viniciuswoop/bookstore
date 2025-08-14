@@ -12,4 +12,3 @@ builder.RegisterRabbit()
         .Build()
         .Run();
 
-builder.Build().Run();
