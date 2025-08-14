@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>f51b6bbb-02d4-4366-82f7-41e9226c9fe0</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.1" />
+    <PackageReference Include="Aspire.Hosting.MongoDB" Version="9.4.1" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookPurchase.Web\BookPurchase.Web.csproj" />
+    <ProjectReference Include="..\Inventory.Api\Inventory.Api.csproj" />
+    <ProjectReference Include="..\Order.Api\Order.Api.csproj" />
+    <ProjectReference Include="..\Payment.Api\Payment.Api.csproj" />
+    <ProjectReference Include="..\Shipping.Api\Shipping.Api.csproj" />
+  </ItemGroup>
+
+</Project>
