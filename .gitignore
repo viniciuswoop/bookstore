@@ -18,3 +18,6 @@
 /src/BookPurchase/Shipping.Api/obj
 /src/BookPurchase/AppHost/bin/Debug/net9.0
 /src/BookPurchase/AppHost/obj
+/src/BookPurchase/Catalog.Api/bin/Debug/net9.0
+/src/BookPurchase/Catalog.Api/obj
+*.user
