@@ -65,4 +65,13 @@ public static class BuilderExtensions
 
         return builder;
     }
+
+    public static IDistributedApplicationBuilder RegisterCatalogApi(this IDistributedApplicationBuilder builder)
+    {
+        var shippingService = builder.AddProject<Projects.Catalog_Api>(ProjectConstants.CatalogApi)
+            .WithReference(_rabbitMq)
+            .WithReference(_mongoDb);
+
+        return builder;
+    }
 }
