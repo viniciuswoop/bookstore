@@ -16,7 +16,7 @@ public static class RabbitMqConstants
 public static class MongoDbConstants
 {
     public const string MongoDb = "mongodb";
-    public const string MongoImage = "mongo:7.0";
+    public const string MongoImage = "mongo:6.0";
     public const int MongoDbPort = 27017;
     public const int MongoDbTargetPort = 27017;
     public const string UsernameVariable = "mongodb-username";
