@@ -4,10 +4,8 @@ public static class RabbitMqConstants
 {
     public const string RabbitMq = "rabbitmq";
     public const string RabbitMqImage = "rabbitmq:3-management";
-    public const string UsernameVariable = "RABBITMQ_DEFAULT_USER";
-    public const string PasswordVariable = "RABBITMQ_DEFAULT_PASS";
-    public const string Username = "admin";
-    public const string Password = "admin";
+    public const string UsernameVariable = "rabbitmq-username";
+    public const string PasswordVariable = "rabbitmq-password";
     public const string Amqp = "amqp";
     public const int AmqpPort = 5672;
     public const int AmqpTargetPort = 5672;
@@ -21,10 +19,8 @@ public static class MongoDbConstants
     public const string MongoImage = "mongo:7.0";
     public const int MongoDbPort = 27017;
     public const int MongoDbTargetPort = 27017;
-    public const string UsernameVariable = "MONGO_INITDB_ROOT_USERNAME";
-    public const string PasswordVariable = "MONGO_INITDB_ROOT_PASSWORD";
-    public const string Username = "admin";
-    public const string Password = "password";
+    public const string UsernameVariable = "mongodb-username";
+    public const string PasswordVariable = "mongodb-password";
 }
 
 public static class ProjectConstants

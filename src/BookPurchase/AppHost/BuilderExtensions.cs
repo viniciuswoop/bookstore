@@ -7,10 +7,11 @@ public static class BuilderExtensions
 
     public static IDistributedApplicationBuilder RegisterRabbit(this IDistributedApplicationBuilder builder)
     {
-        _rabbitMq = builder.AddRabbitMQ(RabbitMqConstants.RabbitMq)
+        var username = builder.AddParameter(RabbitMqConstants.UsernameVariable);
+        var password = builder.AddParameter(RabbitMqConstants.PasswordVariable);
+
+        _rabbitMq = builder.AddRabbitMQ(RabbitMqConstants.RabbitMq, userName: username, password: password)
                             .WithImage(RabbitMqConstants.RabbitMqImage)
-                            .WithEnvironment(RabbitMqConstants.UsernameVariable, RabbitMqConstants.Username)
-                            .WithEnvironment(RabbitMqConstants.PasswordVariable, RabbitMqConstants.Password)
                             .WithEndpoint(name: RabbitMqConstants.Amqp, port: RabbitMqConstants.AmqpPort, targetPort: RabbitMqConstants.AmqpTargetPort)
                             .WithHttpEndpoint(RabbitMqConstants.DashboardPort, RabbitMqConstants.DashboardTargetPort);
 
@@ -19,11 +20,12 @@ public static class BuilderExtensions
 
     public static IDistributedApplicationBuilder RegisterMongoDb(this IDistributedApplicationBuilder builder)
     {
-        _mongoDb = builder.AddMongoDB(MongoDbConstants.MongoDb)
+        var username = builder.AddParameter(MongoDbConstants.UsernameVariable);
+        var password = builder.AddParameter(MongoDbConstants.PasswordVariable);
+
+        _mongoDb = builder.AddMongoDB(MongoDbConstants.MongoDb, userName: username, password: password)
                             .WithImage(MongoDbConstants.MongoImage)
-                            .WithHttpsEndpoint(MongoDbConstants.MongoDbPort, MongoDbConstants.MongoDbTargetPort)
-                            .WithEnvironment(MongoDbConstants.UsernameVariable, MongoDbConstants.Username)
-                            .WithEnvironment(MongoDbConstants.PasswordVariable, MongoDbConstants.Password);
+                            .WithHttpsEndpoint(MongoDbConstants.MongoDbPort, MongoDbConstants.MongoDbTargetPort);
 
         return builder;
     }

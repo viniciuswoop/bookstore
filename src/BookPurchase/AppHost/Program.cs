@@ -11,4 +11,3 @@ builder.RegisterRabbit()
         .RegisterShippmentApi()
         .Build()
         .Run();
-
