@@ -4,6 +4,11 @@ public static class BuilderExtensions
 {
     private static IResourceBuilder<RabbitMQServerResource> _rabbitMq;
     private static IResourceBuilder<MongoDBServerResource> _mongoDb;
+    private static IResourceBuilder<ProjectResource> _orderApi;
+    private static IResourceBuilder<ProjectResource> _inventoryApi;
+    private static IResourceBuilder<ProjectResource> _paymentApi;
+    private static IResourceBuilder<ProjectResource> _shipmentApi;
+    private static IResourceBuilder<ProjectResource> _catalogApi;
 
     public static IDistributedApplicationBuilder RegisterRabbit(this IDistributedApplicationBuilder builder)
     {
@@ -32,16 +37,16 @@ public static class BuilderExtensions
 
     public static IDistributedApplicationBuilder RegisterOrderApi(this IDistributedApplicationBuilder builder)
     {
-        var orderService = builder.AddProject<Projects.Order_Api>(ProjectConstants.OrderApi)
+        _orderApi = builder.AddProject<Projects.Order_Api>(ProjectConstants.OrderApi)
             .WithReference(_rabbitMq)
             .WithReference(_mongoDb);
 
         return builder;
     }
 
-    public static IDistributedApplicationBuilder RegisterInventtoryApi(this IDistributedApplicationBuilder builder)
+    public static IDistributedApplicationBuilder RegisterInventoryApi(this IDistributedApplicationBuilder builder)
     {
-        var inventoryService = builder.AddProject<Projects.Inventory_Api>(ProjectConstants.InventoryApi)
+        _inventoryApi = builder.AddProject<Projects.Inventory_Api>(ProjectConstants.InventoryApi)
             .WithReference(_rabbitMq)
             .WithReference(_mongoDb);
 
@@ -50,7 +55,7 @@ public static class BuilderExtensions
 
     public static IDistributedApplicationBuilder RegisterPaymentApi(this IDistributedApplicationBuilder builder)
     {
-        var paymentService = builder.AddProject<Projects.Payment_Api>(ProjectConstants.PaymentApi)
+        _paymentApi = builder.AddProject<Projects.Payment_Api>(ProjectConstants.PaymentApi)
             .WithReference(_rabbitMq)
             .WithReference(_mongoDb);
 
@@ -59,7 +64,7 @@ public static class BuilderExtensions
 
     public static IDistributedApplicationBuilder RegisterShippmentApi(this IDistributedApplicationBuilder builder)
     {
-        var shippingService = builder.AddProject<Projects.Shipping_Api>(ProjectConstants.ShippmentApi)
+        _shipmentApi = builder.AddProject<Projects.Shipping_Api>(ProjectConstants.ShippmentApi)
             .WithReference(_rabbitMq)
             .WithReference(_mongoDb);
 
@@ -68,9 +73,21 @@ public static class BuilderExtensions
 
     public static IDistributedApplicationBuilder RegisterCatalogApi(this IDistributedApplicationBuilder builder)
     {
-        var shippingService = builder.AddProject<Projects.Catalog_Api>(ProjectConstants.CatalogApi)
+        _catalogApi = builder.AddProject<Projects.Catalog_Api>(ProjectConstants.CatalogApi)
             .WithReference(_rabbitMq)
             .WithReference(_mongoDb);
+
+        return builder;
+    }
+
+    public static IDistributedApplicationBuilder RegisterBookPurchaseWeb(this IDistributedApplicationBuilder builder)
+    {
+        var shippingService = builder.AddProject<Projects.BookPurchase_Web>(ProjectConstants.PurchaseWebApp)
+            .WithReference(_orderApi)
+            .WithReference(_inventoryApi)
+            .WithReference(_paymentApi)
+            .WithReference(_shipmentApi)
+            .WithReference(_catalogApi);
 
         return builder;
     }

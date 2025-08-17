@@ -30,4 +30,5 @@ public static class ProjectConstants
     public const string InventoryApi = "Inventory-api";
     public const string PaymentApi = "payment-api";
     public const string CatalogApi = "catalog-api";
+    public const string PurchaseWebApp = "purchase-book-app";
 }
