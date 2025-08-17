@@ -1,15 +1,18 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 
 namespace BookPurchase.Web.Catalog.Components;
 
 public partial class BookListFilter
 {
-    [Parameter] public string FilterValue { get; set; }
+    [Parameter] public string SearchTerm { get; set; }
+    [Parameter] public EventCallback<string> OnSearch { get; set; }
 
-    private void SearchAsync()
+    private async Task Search()
     {
-        
+        if (OnSearch.HasDelegate)
+        {
+            await OnSearch.InvokeAsync(SearchTerm);
+        }
     }
 
     protected override void OnInitialized()

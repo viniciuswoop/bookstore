@@ -2,7 +2,5 @@
 
 public class BookListModel
 {
-    public string FilterValue { get; set; }
-
-    public List<BookModel> Books { get; set; }
+    public List<BookModel> Books { get; set; } = new();
 }

@@ -25,7 +25,7 @@ public class CatalogController : ControllerBase
     }
 
     [HttpGet("books")]
-    public async Task<IActionResult> GetBooks() => Ok(await _repository.GetAllAsync());
+    public async Task<IActionResult> GetBooks([FromQuery] string? searchTerm) => Ok(await _repository.GetAllAsync());
 
     [HttpPost("books")]
     public async Task<IActionResult> AddBook([FromBody] CreateBookCommand command)

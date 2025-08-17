@@ -1,4 +1,7 @@
 using BookPurchase.Web.App;
+using BookPurchase.Web.Catalog;
+using BookPurchase.Web.Catalog.Services;
+using BookPurchase.Web.Catalog.Services.Abstractions;
 using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +15,11 @@ builder
 builder.Services.AddHttpClient();
 builder.Services.AddRadzenComponents();
 
+builder.Services.AddHttpClient(CatalogConstants.CatalogApi, (opt) => 
+{
+    opt.BaseAddress = new Uri("https://localhost:7268/api/");
+});
+builder.Services.AddScoped<ICatalogService, CatalogService>();
 
 var app = builder.Build();
 

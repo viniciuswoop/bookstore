@@ -3,12 +3,12 @@
 <div class="row mb-3">
     <div class="col-md-6">
         <div class="input-group">
-            <RadzenTextBox @bind-Value="FilterValue"
+            <RadzenTextBox @bind-Value="SearchTerm"
                             Placeholder="Search..."
                             Style="flex:1;" />
             
             <RadzenButton Icon="search"
-                          Click="@SearchAsync"
+                          Click="@Search"
                           ButtonStyle="ButtonStyle.Primary"
                           Style="margin-left:-1px;" />
         </div>
