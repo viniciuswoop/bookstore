@@ -21,3 +21,4 @@
 /src/BookPurchase/Catalog.Api/bin/Debug/net9.0
 /src/BookPurchase/Catalog.Api/obj
 *.user
+/src/BookPurchase/.vs/ProjectEvaluation
