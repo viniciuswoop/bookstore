@@ -60,7 +60,36 @@ namespace Catalog.Api.UnitTests.Controllers
 
             // assert
             response.Should().BeOfType<CreatedAtActionResult>().Subject.StatusCode.Should().Be((int)HttpStatusCode.Created);
+        }
 
+        [Fact]
+        public async Task WhenQueryingAllBooks_ThenReturnBookList()
+        {
+            // arrange
+            var dddBook = new Book();
+            dddBook.Create("DDD", "Fantastic", "Eric Evans");
+
+            _catalogRepoMock
+                .Setup(s => s.GetAllAsync())
+                .ReturnsAsync(new List<Book>()
+                {
+                    dddBook
+                })
+                .Verifiable();
+
+            // act
+            var response = await _sut.GetBooksAsync(string.Empty);
+
+            // assert
+            var booksResponse = response
+                .Should()
+                .BeOfType<OkObjectResult>()
+                .Subject
+                .Value
+                .Should()
+                .BeOfType<List<Book>>();
+            booksResponse.Subject.Count.Should().Be(1);
+            _catalogRepoMock.Verify();
         }
     }
 }
