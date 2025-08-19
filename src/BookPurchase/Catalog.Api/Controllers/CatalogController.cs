@@ -1,6 +1,5 @@
 using Catalog.Api.Commands;
 using Catalog.Api.Domains;
-using Catalog.Api.Repositories;
 using Catalog.Api.Repositories.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,7 +27,7 @@ public class CatalogController : ControllerBase
     public async Task<IActionResult> GetBooks([FromQuery] string? searchTerm) => Ok(await _repository.GetAllAsync());
 
     [HttpPost("books")]
-    public async Task<IActionResult> AddBook([FromBody] CreateBookCommand command)
+    public async Task<IActionResult> AddBookAsync([FromBody] CreateBookCommand command)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);

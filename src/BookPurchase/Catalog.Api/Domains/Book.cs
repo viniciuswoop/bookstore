@@ -5,8 +5,6 @@ namespace Catalog.Api.Domains;
 
 public class Book
 {
-    #region [ Properties ]
-
     [BsonId]
     [BsonRepresentation(BsonType.String)]
     public string Id { get; private set; } = string.Empty;
@@ -18,10 +16,6 @@ public class Book
     public string Author { get; private set; } = string.Empty;
 
     public bool Available {  get; private set; }
-
-    #endregion
-
-    #region [ Methods ]
 
     public void SetOutOfStock()
     {
@@ -42,6 +36,4 @@ public class Book
         
         SetOutOfStock();
     }
-
-    #endregion
 }
