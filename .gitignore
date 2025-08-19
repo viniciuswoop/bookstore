@@ -22,3 +22,5 @@
 /src/BookPurchase/Catalog.Api/obj
 *.user
 /src/BookPurchase/.vs/ProjectEvaluation
+/tests/Catalog.Api.UnitTests/bin/Debug/net9.0
+/tests/Catalog.Api.UnitTests/obj
