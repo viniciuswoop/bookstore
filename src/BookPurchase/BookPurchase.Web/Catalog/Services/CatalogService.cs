@@ -19,4 +19,12 @@ public class CatalogService : ICatalogService
 
         return await response.Content.ReadFromJsonAsync<List<BookModel>>() ?? new List<BookModel>();
     }
+
+    public async Task<BookModel?> GetBookAsync(string id)
+    {
+        var response = await _httpClient.GetAsync($"catalog/books/{id}");
+        response.EnsureSuccessStatusCode();
+
+        return await response.Content.ReadFromJsonAsync<BookModel>();
+    }
 }
