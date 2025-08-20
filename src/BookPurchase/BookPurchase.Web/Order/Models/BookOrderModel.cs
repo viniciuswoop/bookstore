@@ -5,12 +5,8 @@ namespace BookPurchase.Web.Order.Models;
 
 public class BookOrderModel
 {
-    public string BookId { get; set; } = string.Empty;
-    
-    public string BookTitle { get; set; } = string.Empty;
-    
-    [Range(1, int.MaxValue, ErrorMessage = "Please inform an Amount.")]
-    public int Amount { get; set; }
+    [ValidateComplexType]
+    public BookInfoViewModel BookInfo { get; set; } = new();
 
     [ValidateComplexType]
     public CardInfoModel CardInfo { get; set; } = new();
@@ -22,10 +18,20 @@ public class BookOrderModel
     {
         if (bookInfo is not null)
         {
-            BookTitle = bookInfo.Title;
-            BookId = bookInfo.Id;
+            BookInfo.BookTitle = bookInfo.Title;
+            BookInfo.BookId = bookInfo.Id;
         }
     }
+}
+
+public class BookInfoViewModel
+{
+    public string BookId { get; set; } = string.Empty;
+
+    public string BookTitle { get; set; } = string.Empty;
+
+    [Range(1, int.MaxValue, ErrorMessage = "Please inform an Amount.")]
+    public int Amount { get; set; }
 }
 
 public class CardInfoModel

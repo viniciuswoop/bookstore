@@ -1,0 +1,41 @@
+﻿
+<h4>Address Info</h4>
+
+<dl class="px-1 m-0">
+	<div class="row">
+		<div class="col-12">
+			<div class="col-12">
+				<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Streeet</RadzenText>
+				<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" @bind-Value="@Value.Street" />
+				<ValidationMessage For="@(() => Value.Street)" />
+			</div>
+			<div class="row mt-2">
+				<div class="col-6">
+					<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">City</RadzenText>
+					<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" @bind-Value="@Value.City" />
+					<ValidationMessage For="@(() => Value.City)" />
+				</div>
+
+				<div class="col-6">
+					<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">State Or Province</RadzenText>
+					<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" @bind-Value="@Value.StateOrProvince" />
+					<ValidationMessage For="@(() => Value.StateOrProvince)" />
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-6">
+					<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Postal Code</RadzenText>
+					<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" @bind-Value="@Value.PostalCode" />
+					<ValidationMessage For="@(() => Value.PostalCode)" />
+				</div>
+
+				<div class="col-6">
+					<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Country</RadzenText>
+					<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" @bind-Value="@Value.Country" />
+					<ValidationMessage For="@(() => Value.Country)" />
+				</div>
+			</div>
+
+		</div>
+	</div>
+</dl>

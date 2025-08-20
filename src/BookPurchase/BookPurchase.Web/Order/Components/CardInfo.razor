@@ -1,0 +1,28 @@
+﻿@using BookPurchase.Web.Order.Models
+
+<h4>Card Info</h4>
+
+<dl class="px-1 m-0">
+	<div class="row">
+		<div class="col-12">
+			<div class="col-12">
+				<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Number</RadzenText>
+				<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" @bind-value="Value.Number" />
+				<ValidationMessage For="@(() => Value.Number)" />
+			</div>
+			<div class="row mt-2">
+				<div class="col-6">
+					<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Expires In</RadzenText>
+					<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" @bind-value="@Value.ExpiresIn" />
+					<ValidationMessage For="@(() => Value.ExpiresIn)" />
+				</div>
+
+				<div class="col-6">
+					<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Security Code</RadzenText>
+					<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" @bind-value="@Value.SecurityCode" />
+					<ValidationMessage For="@(() => Value.SecurityCode)" />
+				</div>
+			</div>
+		</div>
+	</div>
+</dl>

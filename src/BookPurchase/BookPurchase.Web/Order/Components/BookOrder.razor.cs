@@ -4,18 +4,18 @@ using Microsoft.AspNetCore.Components;
 
 namespace BookPurchase.Web.Order.Components;
 
-public partial class BookOrder
+public partial class BookOrder 
 {
     [Parameter] public string BookId { get; set; }
-    BookOrderModel Model { get; set; } = new();
+    
     [Inject] ICatalogService CatalogService { get; set; }
+    
+    [SupplyParameterFromForm] protected BookOrderModel Model { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
         var book = await CatalogService.GetBookAsync(BookId);
-
         Model.SetBookInfo(book);
-        
         base.OnInitialized();
     }
 
@@ -23,4 +23,5 @@ public partial class BookOrder
     {
         
     }
+
 }
