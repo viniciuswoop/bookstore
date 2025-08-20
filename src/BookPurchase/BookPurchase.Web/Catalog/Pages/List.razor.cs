@@ -9,7 +9,7 @@ namespace BookPurchase.Web.Catalog.Pages;
 public partial class List
 {
     public BookListModel Model { get; set; } = new();
-    [Inject] ICatalogService CatalogService { get; set; }
+    [Inject] public required ICatalogService CatalogService { get; set; }
 
     protected override void OnInitialized()
     {
