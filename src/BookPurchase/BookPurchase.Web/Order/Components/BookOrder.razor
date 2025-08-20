@@ -1,33 +1,43 @@
 ﻿@page "/BookOrder/{BookId}"
-<h3>BookOrder</h3>
+
+
 
 <EditForm Model="Model" OnValidSubmit="CreateOrderAsync">
+
 	<ObjectGraphDataAnnotationsValidator />
 
-
 	<RadzenColumn CLass="rz-m-0">
+
 		<RadzenCard Class="rz-mx-auto rz-p-4">
+
+			<h4>Book Info</h4>
+
 			<dl class="px-1 m-0">
+
 				<div class="row">
-					
 					<div class="col-12">
-						<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Book</RadzenText>
-						<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.BookTitle" />
-						<ValidationMessage For="@(() => Model.BookTitle)" />
-					</div>
+						<div class="row">
+							<div class="col-8">
+								<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Book</RadzenText>
+								<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.BookTitle" Disabled=true />
+								<ValidationMessage For="@(() => Model.BookTitle)" />
+							</div>
 
-					<div class="col-12">
-						<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Amount</RadzenText>
-						<RadzenNumeric @bind-Value=@Model.Amount  />
-						<ValidationMessage For="@(() => Model.BookTitle)" />
+							<div class="col-4">
+								<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Amount</RadzenText>
+								<RadzenNumeric Style="width: 100%" @bind-Value=@Model.Amount />
+								<ValidationMessage For="@(() => Model.Amount)" />
+							</div>
+						</div>
 					</div>
-
 				</div>
 			</dl>
 		</RadzenCard>
-	</RadzenColumn>
-	<RadzenColumn CLass="rz-m-0">
-		<RadzenCard Class="rz-mx-auto rz-p-4">
+
+		<RadzenCard Class="rz-my-4 rz-mx-auto rz-p-4">
+
+			<h4>Card Info</h4>
+
 			<dl class="px-1 m-0">
 				<div class="row">
 					<div class="col-12">
@@ -36,17 +46,18 @@
 							<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.CardInfo.Number" />
 							<ValidationMessage For="@(() => Model.CardInfo.Number)" />
 						</div>
+						<div class="row mt-2">
+							<div class="col-6">
+								<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Expires In</RadzenText>
+								<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.CardInfo.ExpiresIn" />
+								<ValidationMessage For="@(() => Model.CardInfo.ExpiresIn)" />
+							</div>
 
-						<div class="col-12">
-							<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Expires In</RadzenText>
-							<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.CardInfo.ExpiresIn" />
-							<ValidationMessage For="@(() => Model.CardInfo.ExpiresIn)" />
-						</div>
-
-						<div class="col-12">
-							<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Security Code</RadzenText>
-							<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.CardInfo.SecurityCode" />
-							<ValidationMessage For="@(() => Model.CardInfo.SecurityCode)" />
+							<div class="col-6">
+								<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Security Code</RadzenText>
+								<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.CardInfo.SecurityCode" />
+								<ValidationMessage For="@(() => Model.CardInfo.SecurityCode)" />
+							</div>
 						</div>
 					</div>
 				</div>
@@ -54,6 +65,9 @@
 		</RadzenCard>
 
 		<RadzenCard Class="rz-my-4 rz-mx-auto rz-p-4">
+
+			<h4>Address Info</h4>
+
 			<dl class="px-1 m-0">
 				<div class="row">
 					<div class="col-12">
@@ -62,29 +76,31 @@
 							<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.AddressInfo.Street" />
 							<ValidationMessage For="@(() => Model.AddressInfo.Street)" />
 						</div>
+						<div class="row mt-2">
+							<div class="col-6">
+								<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">City</RadzenText>
+								<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.AddressInfo.City" />
+								<ValidationMessage For="@(() => Model.AddressInfo.City)" />
+							</div>
 
-						<div class="col-6">
-							<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">City</RadzenText>
-							<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.AddressInfo.City" />
-							<ValidationMessage For="@(() => Model.AddressInfo.City)" />
+							<div class="col-6">
+								<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">State Or Province</RadzenText>
+								<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.AddressInfo.StateOrProvince" />
+								<ValidationMessage For="@(() => Model.AddressInfo.StateOrProvince)" />
+							</div>
 						</div>
+						<div class="row mt-2">
+							<div class="col-6">
+								<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Postal Code</RadzenText>
+								<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.AddressInfo.PostalCode" />
+								<ValidationMessage For="@(() => Model.AddressInfo.PostalCode)" />
+							</div>
 
-						<div class="col-6">
-							<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">State Or Province</RadzenText>
-							<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.AddressInfo.StateOrProvince" />
-							<ValidationMessage For="@(() => Model.AddressInfo.StateOrProvince)" />
-						</div>
-
-						<div class="col-6">
-							<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Postal Code</RadzenText>
-							<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.AddressInfo.PostalCode" />
-							<ValidationMessage For="@(() => Model.AddressInfo.PostalCode)" />
-						</div>
-
-						<div class="col-6">
-							<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Country</RadzenText>
-							<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.AddressInfo.Country" />
-							<ValidationMessage For="@(() => Model.AddressInfo.Country)" />
+							<div class="col-6">
+								<RadzenText TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Country</RadzenText>
+								<RadzenTextBox Style="width: 100%" aria-label="Default TextBox" Value="@Model.AddressInfo.Country" />
+								<ValidationMessage For="@(() => Model.AddressInfo.Country)" />
+							</div>
 						</div>
 
 					</div>
@@ -92,5 +108,9 @@
 			</dl>
 		</RadzenCard>
 	</RadzenColumn>
+
+	<div style="display:flex; justify-content:flex-end;">
+		<RadzenButton Text="Book Order" ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" />
+	</div>
 
 </EditForm>
