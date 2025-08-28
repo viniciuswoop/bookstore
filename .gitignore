@@ -24,3 +24,10 @@
 /src/BookPurchase/.vs/ProjectEvaluation
 /tests/Catalog.Api.UnitTests/bin/Debug/net9.0
 /tests/Catalog.Api.UnitTests/obj
+/src/BookPurchase/Inventory.Contract/bin/Debug/net9.0
+/src/BookPurchase/Inventory.Contract/obj
+/src/BookPurchase/Order.Contract/bin/Debug/net9.0
+/src/BookPurchase/Order.Contract/obj
+/src/BookPurchase/Payment.Contract/bin/Debug/net9.0
+/src/BookPurchase/Shipment.Contract/bin/Debug/net9.0
+/src/BookPurchase/Payment.Contract/obj
