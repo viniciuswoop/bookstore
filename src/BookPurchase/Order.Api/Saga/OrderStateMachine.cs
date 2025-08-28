@@ -1,5 +1,11 @@
-﻿using MassTransit;
-using Order.Api.Events;
+﻿using Inventory.Contract.Commands;
+using Inventory.Contract.Events;
+using MassTransit;
+using Order.Contract.Events;
+using Payment.Contract.Commands;
+using Payment.Contract.Events;
+using Shipment.Contract.Commands;
+using Shipment.Contract.Events;
 
 namespace Order.Api.Saga;
 
@@ -9,13 +15,12 @@ public class OrderStateMachine : MassTransitStateMachine<OrderState>
     public State ProcessingInventory { get; private set; }
     public State ProcessingPayment { get; private set; }
     public State ProcessingShipment { get; private set; }
-    public State OrderCancelled { get; private set; }
+    public State Cancelled { get; private set; }
     public State Completed { get; private set; }
 
     public Event<OrderSubmitted> OrderSubmitted { get; private set; }
     public Event<InventoryReserved> InventoryReserved { get; private set; }
     public Event<PaymentProcessed> PaymentProcessed { get; private set; }
-    public Event<ShipmentCreated> ShipmentCreated { get; private set; }
     public Event<InventoryOutOfStock> InventoryOutOfStock { get; private set; }
     public Event<PaymentRejected> PaymentRejected { get; private set; }
     public Event<DeveliryNotAvailable> DeveliryNotAvailable { get; private set; }
@@ -28,7 +33,6 @@ public class OrderStateMachine : MassTransitStateMachine<OrderState>
         Event(() => OrderSubmitted, x => x.CorrelateById(m => m.Message.OrderId));
         Event(() => InventoryReserved, x => x.CorrelateById(m => m.Message.OrderId));
         Event(() => PaymentProcessed, x => x.CorrelateById(m => m.Message.OrderId));
-        Event(() => ShipmentCreated, x => x.CorrelateById(m => m.Message.OrderId));
         Event(() => InventoryOutOfStock, x => x.CorrelateById(m => m.Message.OrderId));
         Event(() => PaymentRejected, x => x.CorrelateById(m => m.Message.OrderId));
         Event(() => DeveliryNotAvailable, x => x.CorrelateById(m => m.Message.OrderId));
@@ -44,16 +48,18 @@ public class OrderStateMachine : MassTransitStateMachine<OrderState>
             When(InventoryReserved)
                 .TransitionTo(ProcessingPayment)
                     .Publish(context => new RequestPaymentProcessingCommand(context.Message.OrderId, "", "", "")),
+            
             When(InventoryOutOfStock)
-                .TransitionTo(OrderCancelled)
+                .TransitionTo(Cancelled)
         );
 
         During(ProcessingPayment,
             When(PaymentProcessed)
                 .TransitionTo(ProcessingShipment)
                     .Publish(context => new RequestShipmentCommand(context.Message.OrderId)),
+            
             When(PaymentRejected)
-                .TransitionTo(OrderCancelled)
+                .TransitionTo(Cancelled)
         );
 
         During(ProcessingShipment,
@@ -61,7 +67,7 @@ public class OrderStateMachine : MassTransitStateMachine<OrderState>
                 .TransitionTo(Completed),
             
             When(DeveliryNotAvailable)
-                .TransitionTo(OrderCancelled)
+                .TransitionTo(Cancelled)
         );
     }
 }

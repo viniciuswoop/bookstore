@@ -1,0 +1,12 @@
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\bin\Debug\net9.0\Shipment.Contract.deps.json
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\bin\Debug\net9.0\Shipment.Contract.dll
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\bin\Debug\net9.0\Shipment.Contract.pdb
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\obj\Debug\net9.0\Shipment.Contract.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\obj\Debug\net9.0\Shipment.Contract.AssemblyInfoInputs.cache
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\obj\Debug\net9.0\Shipment.Contract.AssemblyInfo.cs
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\obj\Debug\net9.0\Shipment.Contract.csproj.CoreCompileInputs.cache
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\obj\Debug\net9.0\Shipment.Contract.sourcelink.json
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\obj\Debug\net9.0\Shipment.Contract.dll
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\obj\Debug\net9.0\refint\Shipment.Contract.dll
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\obj\Debug\net9.0\Shipment.Contract.pdb
+C:\Users\Findmore\source\repos\viniciuswoop\bookstore\src\BookPurchase\Shipment.Contract\obj\Debug\net9.0\ref\Shipment.Contract.dll

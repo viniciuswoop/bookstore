@@ -12,7 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Saga\Enums\" />
+    <ProjectReference Include="..\Inventory.Contract\Inventory.Contract.csproj" />
+    <ProjectReference Include="..\Order.Contract\Order.Contract.csproj" />
+    <ProjectReference Include="..\Payment.Contract\Payment.Contract.csproj" />
+    <ProjectReference Include="..\Shipment.Contract\Shipment.Contract.csproj" />
   </ItemGroup>
 
 </Project>
