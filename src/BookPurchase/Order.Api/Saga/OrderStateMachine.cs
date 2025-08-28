@@ -43,7 +43,9 @@ public class OrderStateMachine : MassTransitStateMachine<OrderState>
         During(ProcessingInventory,
             When(InventoryReserved)
                 .TransitionTo(ProcessingPayment)
-                    .Publish(context => new RequestPaymentProcessingCommand(context.Message.OrderId, "", "", ""))
+                    .Publish(context => new RequestPaymentProcessingCommand(context.Message.OrderId, "", "", "")),
+            When(InventoryOutOfStock)
+                .TransitionTo(OrderCancelled)
         );
 
         During(ProcessingPayment,
@@ -61,6 +63,5 @@ public class OrderStateMachine : MassTransitStateMachine<OrderState>
             When(DeveliryNotAvailable)
                 .TransitionTo(OrderCancelled)
         );
-
     }
 }
